@@ -10,7 +10,7 @@ Planned Features for the version 0.1.0
   - Name
   - Date
   - Type
-  - Time / Distance
+  - Score (Time / Distance)
   - Leaderboard
 - Create a **Rider**
   - Name
@@ -24,3 +24,33 @@ Planned Features for the version 0.1.0
 - Display the **Race Leaderboard**
 - Connect to an Arduino
 - Provide the code for the Arduino
+
+# Structures for saving/loading data :
+## Rider :
+```json
+{
+  name : "",
+  contact : ""
+}
+```
+
+## Race
+```json
+{
+  name : "",
+  date : "",
+  type : "",
+  parameters : {},
+  score : 0.0,
+  leaderboard : [ {rider} ]
+}
+```
+
+## Event
+```json
+{
+  name : "",
+  startDate : "",
+  endDate : "",
+  races : [ {race} ]
+```
