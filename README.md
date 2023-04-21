@@ -27,7 +27,7 @@ Planned Features for the version 0.1.0
 
 # Structures for saving/loading data :
 ## Rider :
-```json
+``` json
 {
   name : "",
   contact : ""
@@ -35,7 +35,7 @@ Planned Features for the version 0.1.0
 ```
 
 ## Race
-```json
+``` json
 {
   name : "",
   date : "",
@@ -47,10 +47,11 @@ Planned Features for the version 0.1.0
 ```
 
 ## Event
-```json
+``` json
 {
   name : "",
   startDate : "",
   endDate : "",
   races : [ {race} ]
+}
 ```
