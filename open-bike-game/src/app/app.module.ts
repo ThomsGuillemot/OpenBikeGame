@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditRaceComponent } from './edit-race/edit-race.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditRaceComponent
+    EditRaceComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
