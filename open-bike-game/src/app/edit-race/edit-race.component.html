@@ -1,23 +1,39 @@
 <h2>Edit Race</h2>
-<ul>
-<li>
-  <input type="radio" name="race-type" id="race-type-distance"/>
-  <label for="race-type-distance">Distance</label>
-</li>
-<li>
-  <input type="radio" name="race-type" id="race-type-duration"/>
-  <label for="race-type-duration">Duration</label>
-</li>
-</ul>
 <div>
-  <label for="race-param-distance">Distance (in meters)</label>
-  <input type="number" id="race-param-distance" [(ngModel)]="race.distance" placeholder="0"/>
+  <ul>
+    <li>
+      <input type="radio" name="race-type" id="race-type-distance" />
+      <label for="race-type-distance">Distance</label>
+    </li>
+    <li>
+      <input type="radio" name="race-type" id="race-type-duration" />
+      <label for="race-type-duration">Duration</label>
+    </li>
+  </ul>
+  <div>
+    <label for="race-param-distance">Distance (in meters)</label>
+    <input
+      type="number"
+      id="race-param-distance"
+      [(ngModel)]="race.distance"
+      placeholder="0"
+    />
+  </div>
+  <div>
+    <label for="race-param-duration">Duration (in minutes)</label>
+    <input
+      type="number"
+      id="race-param-duration"
+      [(ngModel)]="race.duration"
+      placeholder="0"
+    />
+  </div>
 </div>
-<div>
-  <label for="race-param-duration">Duration (in minutes)</label>
-  <input type="number" id="race-param-duration" [(ngModel)]="race.duration" placeholder="0"/>
-</div>
-<div>
-  <button type="button" name="cancel-edition">Cancel</button>
-  <button type="button" name="validate-edition">Validate</button>
+<div class="navigation-footer">
+  <nav>
+    <a routerLink="/main-menu"
+      ><span class="navigation-button">Main Menu</span></a
+    >
+    <a routerLink="/race-view"><span class="navigation-button">Race</span></a>
+  </nav>
 </div>

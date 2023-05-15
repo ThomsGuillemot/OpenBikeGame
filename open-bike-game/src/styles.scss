@@ -1,4 +1,52 @@
-button{
-  padding: 2px 8px;
-  margin: 4px 8px;
+$font-stack: Tahoma, sans-serif;
+// Colors
+$primary-color: #eee;
+$secondary-color: #eee;
+
+$primary-bg-color: #333;
+$secondary-bg-color: dodgerblue;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  background-color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navigation-footer {
+  margin: 12px 12px;
+}
+
+// BUTTONS
+
+%menu-buttons{
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 0 8px black;
+  padding: 8px 12px;
+  margin: 8px;
+  text-decoration: none;
+}
+
+%menu-buttons:hover{
+  box-shadow: none;
+}
+
+%menu-buttons:active{
+  box-shadow: 0 0 8px black inset;
+}
+
+.main-menu-button {
+  @extend %menu-buttons;
+  background-color: $secondary-bg-color;
+  color: $secondary-color;
+}
+
+.navigation-button {
+  @extend %menu-buttons;
+  background-color: $secondary-bg-color;
+  color: $secondary-color;
 }
