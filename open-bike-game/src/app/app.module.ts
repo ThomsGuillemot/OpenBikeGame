@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditRaceComponent } from './edit-race/edit-race.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { RaceViewComponent } from './race-view/race-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditRaceComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    RaceViewComponent
   ],
   imports: [
     BrowserModule,

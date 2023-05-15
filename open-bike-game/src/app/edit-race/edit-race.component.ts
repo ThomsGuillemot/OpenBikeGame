@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Race } from 'src/bike-game-engine/race';
+import { RaceConfiguration } from 'src/bike-game-engine/race-configuration';
 import { RaceType } from 'src/bike-game-engine/race-type';
 
 @Component({
@@ -8,7 +8,7 @@ import { RaceType } from 'src/bike-game-engine/race-type';
   styleUrls: ['./edit-race.component.scss'],
 })
 export class EditRaceComponent {
-  race: Race = {
+  race: RaceConfiguration = {
     type: RaceType.Distance,
     duration: 0,
     distance: 0,

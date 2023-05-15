@@ -1,6 +1,6 @@
 import { RaceType } from "./race-type";
 
-export interface Race {
+export interface RaceConfiguration {
   /// The type of the race.
   type: RaceType;
   /// Distance of the race In meters
