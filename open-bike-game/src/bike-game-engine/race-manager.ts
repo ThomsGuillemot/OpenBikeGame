@@ -1,11 +1,9 @@
-import { race } from "rxjs";
-import { RaceConfiguration } from "./race-configuration";
+import { RaceConfiguration } from './race-configuration';
 
 export class RaceManager {
-  raceConfiguration : RaceConfiguration;
+  private raceConfiguration: RaceConfiguration;
 
-  constructor(raceConfiguration : RaceConfiguration)
-  {
+  constructor(raceConfiguration: RaceConfiguration) {
     this.raceConfiguration = raceConfiguration;
   }
 }
