@@ -3,11 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditRaceComponent } from './edit-race/edit-race.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { RaceViewComponent } from './race-view/race-view.component';
+import { RaceComponent } from './race/race.component';
 
 const routes: Routes = [
   { path: 'main-menu', component: MainMenuComponent },
-  { path: 'edit-race', component: EditRaceComponent },
-  { path: 'race-view', component: RaceViewComponent },
+  {
+    path: 'race',
+    children: [
+      { path: '', redirectTo: 'edit', pathMatch: 'full' },
+      { path: 'edit', component: EditRaceComponent },
+      { path: 'view', component: RaceViewComponent },
+    ],
+  },
   { path: '', redirectTo: '/main-menu', pathMatch: 'full' },
 ];
 

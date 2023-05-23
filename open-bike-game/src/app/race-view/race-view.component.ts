@@ -9,6 +9,9 @@ import {
 import { RaceConfiguration, RaceManager, RaceType } from 'src/bike-game-engine';
 import * as THREE from 'three';
 
+/**
+ * Component that holds the race view. Allowing the player to view the race
+ */
 @Component({
   selector: 'app-race-view',
   templateUrl: './race-view.component.html',

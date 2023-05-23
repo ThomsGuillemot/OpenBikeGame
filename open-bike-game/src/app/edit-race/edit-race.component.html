@@ -2,7 +2,7 @@
 <div>
   <ul>
     <li>
-      <input type="radio" name="race-type" id="race-type-distance" />
+      <input type="radio" name="race-type" id="race-type-distance" checked/>
       <label for="race-type-distance">Distance</label>
     </li>
     <li>
@@ -16,7 +16,7 @@
       type="number"
       id="race-param-distance"
       [(ngModel)]="race.distance"
-      placeholder="0"
+      value=500
     />
   </div>
   <div>
@@ -31,9 +31,7 @@
 </div>
 <div class="navigation-footer">
   <nav>
-    <a routerLink="/main-menu"
-      ><span class="navigation-button">Main Menu</span></a
-    >
-    <a routerLink="/race-view"><span class="navigation-button">Race</span></a>
+    <a routerLink="/main-menu" class="navigation-button"> Main Menu </a>
+    <a routerLink="/race/view" class="navigation-button">Race</a>
   </nav>
 </div>
