@@ -15,7 +15,7 @@
     <input
       type="number"
       id="race-param-distance"
-      [(ngModel)]="race.distance"
+      [(ngModel)]="raceConfiguration.distance"
       value=500
     />
   </div>
@@ -24,14 +24,14 @@
     <input
       type="number"
       id="race-param-duration"
-      [(ngModel)]="race.duration"
+      [(ngModel)]="raceConfiguration.duration"
       placeholder="0"
     />
   </div>
 </div>
 <div class="navigation-footer">
   <nav>
-    <a routerLink="/main-menu" class="navigation-button"> Main Menu </a>
+    <a (click)="confirmAndStartRace" class="navigation-button"> Main Menu </a>
     <a routerLink="/race/view" class="navigation-button">Race</a>
   </nav>
 </div>
