@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { RaceConfiguration } from 'src/bike-game-engine/race-configuration';
 import { RaceType } from 'src/bike-game-engine/race-type';

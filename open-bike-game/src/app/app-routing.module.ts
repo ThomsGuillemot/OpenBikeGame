@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditRaceComponent } from './edit-race/edit-race.component';
-import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import { RaceViewComponent } from './components/race-view/race-view.component';
-import { RaceComponent } from './components/race/race.component';
+import { EditRaceComponent, MainMenuComponent, RaceViewComponent } from './components';
 
 const routes: Routes = [
   { path: 'main-menu', component: MainMenuComponent },
