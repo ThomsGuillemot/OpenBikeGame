@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RaceService } from 'src/app/services/race.service';
 import { RaceConfiguration } from 'src/bike-game-engine/race-configuration';
-import { RaceType } from 'src/bike-game-engine/race-type';
 
 @Component({
   selector: 'app-edit-race',
@@ -9,28 +9,23 @@ import { RaceType } from 'src/bike-game-engine/race-type';
   styleUrls: ['./edit-race.component.scss'],
 })
 export class EditRaceComponent {
-  raceConfiguration: RaceConfiguration = {
-    type: RaceType.Distance,
-    duration: 5,
-    distance: 500,
-  };
+  raceConfiguration: RaceConfiguration;
   /**
    * Event to register to, to be able to get the raceConfiguration
    */
-  @Output() confirmRaceConfiguration = new EventEmitter();
 
-  constructor(public router: Router){}
+  constructor(public router: Router, private raceService: RaceService) {
+    this.raceConfiguration = raceService.raceConfiguration;
+  }
   /**
    * Send the race configuration to the parent component
    */
-  doConfirmRaceConfiguration()
-  {
-    this.confirmRaceConfiguration.emit(this.raceConfiguration);
+  doConfirmRaceConfiguration() {
+    this.raceService.raceConfiguration = this.raceConfiguration;
   }
 
-  confirmAndStartRace()
-  {
+  confirmAndStartRace() {
     this.doConfirmRaceConfiguration();
-    this.router.navigate(['/main-menu'])
+    this.router.navigate(['/race/view']);
   }
 }

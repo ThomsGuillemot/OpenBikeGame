@@ -1,16 +1,12 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { EditRaceComponent } from '../edit-race/edit-race.component';
-import { RaceConfiguration } from 'src/bike-game-engine';
+import { Component } from '@angular/core';
+import { RaceService } from 'src/app/services/race.service';
 
 @Component({
   selector: 'app-race',
   templateUrl: './race.component.html',
   styleUrls: ['./race.component.scss'],
+  providers: [RaceService],
 })
 export class RaceComponent {
-  raceConfiguration?: RaceConfiguration;
-
-  receiveRaceConfiguration($event: RaceConfiguration) {
-    this.raceConfiguration = $event;
-  }
+  constructor(private raceService: RaceService) {}
 }

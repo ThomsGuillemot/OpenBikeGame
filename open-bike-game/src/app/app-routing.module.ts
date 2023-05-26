@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditRaceComponent, MainMenuComponent, RaceViewComponent } from './components';
+import {
+  EditRaceComponent,
+  MainMenuComponent,
+  RaceComponent,
+  RaceViewComponent,
+} from './components';
 
 const routes: Routes = [
   { path: 'main-menu', component: MainMenuComponent },
   {
     path: 'race',
+    component: RaceComponent,
     children: [
       { path: '', redirectTo: 'edit', pathMatch: 'full' },
       { path: 'edit', component: EditRaceComponent },
