@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {
-  EditRaceComponent,
-  MainMenuComponent,
-  RaceComponent,
-  RaceViewComponent,
-} from './components';
+
+import { MainMenuComponent } from './components';
+import { NgModule } from '@angular/core';
+import { RaceComponent } from './race/race/race.component';
+import { RaceEditorComponent } from './race/race-editor/race-editor.component';
+import { RaceViewComponent } from './race/race-view/race-view.component';
 
 const routes: Routes = [
   { path: 'main-menu', component: MainMenuComponent },
@@ -14,7 +13,7 @@ const routes: Routes = [
     component: RaceComponent,
     children: [
       { path: '', redirectTo: 'edit', pathMatch: 'full' },
-      { path: 'edit', component: EditRaceComponent },
+      { path: 'edit', component: RaceEditorComponent },
       { path: 'view', component: RaceViewComponent },
     ],
   },

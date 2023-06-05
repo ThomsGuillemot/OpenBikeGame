@@ -1,25 +1,14 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnDestroy,
-  ViewChild,
-} from '@angular/core';
-import { ThreeRenderingComponent } from 'src/app/interfaces/three-rendering-component';
-import { RaceService } from 'src/app/services';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+import { RaceService } from '../race.service';
 import { WebGLRenderer } from 'three';
 
-/**
- * Component that holds the race view. Allowing the player to view the race
- */
 @Component({
   selector: 'app-race-view',
   templateUrl: './race-view.component.html',
   styleUrls: ['./race-view.component.scss'],
 })
-export class RaceViewComponent
-  implements AfterViewInit, OnDestroy, ThreeRenderingComponent
-{
+export class RaceViewComponent {
   @ViewChild('canvas')
   private _canvas!: ElementRef;
   private _renderer!: WebGLRenderer;

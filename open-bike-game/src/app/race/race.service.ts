@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
-import { RaceConfiguration, RaceManager, RaceType } from 'src/bike-game-engine';
 import * as THREE from 'three';
-import { Camera, Renderer, Scene } from 'three';
+
+import { Camera, Scene } from 'three';
+import { RaceConfiguration, RaceManager, RaceType } from 'src/bike-game-engine';
+
+import { Injectable } from '@angular/core';
 import { ThreeRenderingComponent } from '../interfaces/three-rendering-component';
 
-/**
- * Provide all the function to control the race
- */
 @Injectable({
   providedIn: 'root',
 })

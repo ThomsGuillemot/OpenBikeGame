@@ -1,25 +1,15 @@
-import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { EditRaceComponent, MainMenuComponent, RaceComponent, RaceViewComponent } from './components';
+import { MainMenuComponent } from './components';
+import { NgModule } from '@angular/core';
+import { RaceModule } from './race/race.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EditRaceComponent,
-    MainMenuComponent,
-    RaceViewComponent,
-    RaceComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  declarations: [AppComponent, MainMenuComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, RaceModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
