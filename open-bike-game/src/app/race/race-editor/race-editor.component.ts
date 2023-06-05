@@ -14,7 +14,7 @@ export class RaceEditorComponent {
 
   constructor(public router: Router, private raceService: RaceService) {
     // Shallow copy as Race configuration should not be a complex object
-    this.raceConfiguration = Object.assign({}, raceService.raceConfiguration);
+    this.raceConfiguration = raceService.raceConfiguration;
   }
 
   /**

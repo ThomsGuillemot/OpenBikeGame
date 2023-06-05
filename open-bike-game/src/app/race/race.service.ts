@@ -10,7 +10,20 @@ import { ThreeRenderingComponent } from '../interfaces/three-rendering-component
   providedIn: 'root',
 })
 export class RaceService {
-  raceConfiguration: RaceConfiguration;
+  private _raceConfiguration: RaceConfiguration;
+
+  /**
+   * Return the shallow copy of the race configuration stored in the service
+   */
+  public get raceConfiguration(): RaceConfiguration {
+    return Object.assign({}, this._raceConfiguration);
+  }
+  public set raceConfiguration(value: RaceConfiguration) {
+    this._raceConfiguration = value;
+  }
+
+  // Return a shallow copy of the race configuration
+  TheRaceConfiguration() {}
   raceManager!: RaceManager;
 
   currentScene!: Scene;
@@ -21,7 +34,7 @@ export class RaceService {
   private cube!: THREE.Mesh;
 
   constructor() {
-    this.raceConfiguration = {
+    this._raceConfiguration = {
       type: RaceType.Distance,
       distance: 500,
       duration: 180,
