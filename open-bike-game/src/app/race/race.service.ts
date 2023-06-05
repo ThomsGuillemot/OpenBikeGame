@@ -1,10 +1,6 @@
-import * as THREE from 'three';
-
-import { Camera, Scene } from 'three';
 import { RaceConfiguration, RaceManager, RaceType } from 'src/bike-game-engine';
 
 import { Injectable } from '@angular/core';
-import { ThreeRenderingComponent } from '../interfaces/three-rendering-component';
 
 @Injectable({
   providedIn: 'root',
@@ -21,17 +17,7 @@ export class RaceService {
   public set raceConfiguration(value: RaceConfiguration) {
     this._raceConfiguration = value;
   }
-
-  // Return a shallow copy of the race configuration
-  TheRaceConfiguration() {}
-  raceManager!: RaceManager;
-
-  currentScene!: Scene;
-  currentCamera!: Camera;
-
-  renderingComponent!: ThreeRenderingComponent;
-
-  private cube!: THREE.Mesh;
+  raceManager: RaceManager | undefined;
 
   constructor() {
     this._raceConfiguration = {
@@ -41,31 +27,27 @@ export class RaceService {
     };
   }
 
-  StartRace(threeRenderingComponent: ThreeRenderingComponent): void {
-    this.renderingComponent = threeRenderingComponent;
+  initRace(canvas: HTMLElement) {
     this.raceManager = new RaceManager(this.raceConfiguration);
-    this.createScene();
+    this.raceManager.init(canvas);
+    this.raceManager.startRenderingLoop();
   }
 
-  private createScene(): void {
-    this.currentScene = new THREE.Scene();
-    this.currentScene.background = new THREE.Color(0x555555);
-    this.currentCamera = new THREE.PerspectiveCamera(
-      75,
-      this.renderingComponent.aspectRatio,
-      0.1,
-      1000
-    );
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x55ff55 });
-    this.cube = new THREE.Mesh(geometry, material);
-    this.currentScene.add(this.cube);
+  startRace(): void {
+    if (!this.raceManager)
+      console.error('Initialize the race before starting it !');
 
-    this.currentCamera.position.z = 5;
+    console.log('Start the Race !');
   }
 
-  updateScene(): void {
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
+  stopRace(): void {
+    if (!this.raceManager)
+      console.error('Initialize the race before stopping it !');
+
+    console.log('Stop the race');
+  }
+
+  stopRender(): void {
+    this.raceManager?.stopRender();
   }
 }
