@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { RaceConfigurationViewModel } from '../race-configuration.view-model';
+import { RaceConfiguration } from 'src/bike-game-engine';
+import { RaceService } from '../race.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,23 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./race-editor.component.scss'],
 })
 export class RaceEditorComponent {
-  @Output() commitedConfiguration =
-    new EventEmitter<RaceConfigurationViewModel>();
-  @Input() raceConfiguration = new RaceConfigurationViewModel();
+  raceConfiguration: RaceConfiguration;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private raceService: RaceService) {
+    // Shallow copy as Race configuration should not be a complex object
+    this.raceConfiguration = Object.assign({}, raceService.raceConfiguration);
+  }
+
   /**
-   * Send the race configuration to the parent component
+   * Store the configuration into the race service
    */
-  doConfirmRaceConfiguration() {
-    this.commitedConfiguration.emit(this.raceConfiguration);
+  private doConfirmRaceConfiguration() {
+    this.raceService.raceConfiguration = this.raceConfiguration;
   }
 
   confirmAndStartRace() {
     this.doConfirmRaceConfiguration();
-    /**
-     * @todo : Transform in a navigation with .next() and .back()
-     */
     this.router.navigate(['/race/view']);
   }
 }

@@ -12,9 +12,9 @@ const routes: Routes = [
     path: 'race',
     component: RaceComponent,
     children: [
-      { path: '', redirectTo: 'edit', pathMatch: 'full' },
-      { path: 'edit', component: RaceEditorComponent },
-      { path: 'view', component: RaceViewComponent },
+      { path: '', redirectTo: 'editor', pathMatch: 'full' },
+      { path: 'editor', title: 'race-editor', component: RaceEditorComponent },
+      { path: 'view', title: 'race-editor', component: RaceViewComponent },
     ],
   },
   { path: '', redirectTo: '/main-menu', pathMatch: 'full' },

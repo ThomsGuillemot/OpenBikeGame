@@ -24,7 +24,7 @@ export class RaceService {
     this.raceConfiguration = {
       type: RaceType.Distance,
       distance: 500,
-      duration: 0,
+      duration: 180,
     };
   }
 
