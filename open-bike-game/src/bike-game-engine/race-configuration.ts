@@ -1,10 +1,10 @@
-import { RaceType } from "./race-type";
+import { RaceType } from './race-type';
 
-export interface Race {
+export interface RaceConfiguration {
   /// The type of the race.
   type: RaceType;
   /// Distance of the race In meters
-  distance : number;
+  distance: number;
   /// Duration of the race in Minutes
-  duration : number;
+  duration: number;
 }

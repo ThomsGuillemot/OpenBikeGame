@@ -1,11 +1,22 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditRaceComponent } from './edit-race/edit-race.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
+
+import { MainMenuComponent } from './components';
+import { NgModule } from '@angular/core';
+import { RaceComponent } from './race/race/race.component';
+import { RaceEditorComponent } from './race/race-editor/race-editor.component';
+import { RaceViewComponent } from './race/race-view/race-view.component';
 
 const routes: Routes = [
   { path: 'main-menu', component: MainMenuComponent },
-  { path: 'edit-race', component: EditRaceComponent },
+  {
+    path: 'race',
+    component: RaceComponent,
+    children: [
+      { path: '', redirectTo: 'editor', pathMatch: 'full' },
+      { path: 'editor', title: 'race-editor', component: RaceEditorComponent },
+      { path: 'view', title: 'race-editor', component: RaceViewComponent },
+    ],
+  },
   { path: '', redirectTo: '/main-menu', pathMatch: 'full' },
 ];
 
