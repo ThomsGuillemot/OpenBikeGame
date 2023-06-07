@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 import { Camera, Scene, WebGLRenderer } from 'three';
 
-import { RaceConfiguration } from './race-configuration';
+import { RaceConfiguration } from 'src/bike-game-engine/data-structures';
 
 /**
  * This manager is responsible of starting a race, get back the result

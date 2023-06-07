@@ -1,6 +1,7 @@
-import { RaceConfiguration, RaceManager, RaceType } from 'src/bike-game-engine';
-
 import { Injectable } from '@angular/core';
+import { RaceConfiguration } from '@GameEngine/data-structures';
+import { RaceManager } from '@GameEngine/managers';
+import { RaceType } from '@GameEngine/enums';
 
 @Injectable({
   providedIn: 'root',

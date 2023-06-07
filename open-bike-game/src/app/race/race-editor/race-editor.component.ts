@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { RaceConfiguration } from 'src/bike-game-engine';
+import { RaceConfiguration } from '@GameEngine/data-structures';
 import { RaceService } from '../race.service';
 import { Router } from '@angular/router';
 

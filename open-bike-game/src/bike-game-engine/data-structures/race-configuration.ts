@@ -1,4 +1,4 @@
-import { RaceType } from './race-type';
+import { RaceType } from '../enums/race-type';
 
 export interface RaceConfiguration {
   /// The type of the race.
