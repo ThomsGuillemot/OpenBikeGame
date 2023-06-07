@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 
 import { Camera, Scene, WebGLRenderer } from 'three';
+import { RaceConfiguration, Rider } from 'src/bike-game-engine/data-structures';
 
-import { RaceConfiguration } from 'src/bike-game-engine/data-structures';
+import { parse as uuidParse } from 'uuid';
 
 /**
  * This manager is responsible of starting a race, get back the result
@@ -15,9 +16,57 @@ export class RaceManager {
   private _scene: Scene | undefined;
   private _camera: Camera | undefined;
   private _cube: THREE.Mesh | undefined;
+  private _riders: Rider[] = [];
 
   constructor(raceConfiguration: RaceConfiguration) {
     this.raceConfiguration = raceConfiguration;
+  }
+
+  registerNewRider(newRider: Rider) {
+    if (!newRider) {
+      console.error(`The given rider is undefined or null : ${newRider}`);
+      return;
+    }
+
+    if (newRider.pseudo.length < 3) {
+      console.error(
+        `The rider name is too short ! It must be more than 3 characters`
+      );
+      return;
+    }
+
+    try {
+      uuidParse(newRider.uuid);
+    } catch (e) {
+      console.error(`The rider uuid is invalid`);
+    }
+
+    const riderIsAlreadyRegistered = (rider: Rider) =>
+      rider.pseudo === newRider.pseudo;
+    if (this._riders.findIndex(riderIsAlreadyRegistered) !== -1) {
+      console.error(
+        `The pseudo ${newRider.pseudo} is already in use for this race`
+      );
+    }
+    this._riders.push(newRider);
+  }
+
+  unregisterRider(leavingRider: Rider) {
+    const index = this._riders.findIndex(
+      (rider) => leavingRider.uuid === rider.uuid
+    );
+    if (index === -1) {
+      console.warn(
+        `Unable to find the rider ${leavingRider.pseudo} in the registered riders`
+      );
+      return;
+    }
+
+    this._riders.splice(index, 1);
+  }
+
+  clearRiders() {
+    this._riders = [];
   }
 
   init(canvas: HTMLElement) {
