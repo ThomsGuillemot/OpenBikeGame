@@ -1,0 +1,10 @@
+#race-editor-main-layout {
+  display: grid;
+  grid-template-columns: 30% 30%;
+  column-gap: 5%;
+}
+
+#race-editor-config-layout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}

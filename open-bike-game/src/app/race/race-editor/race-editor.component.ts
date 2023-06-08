@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { RaceConfiguration } from '@GameEngine/data-structures';
 import { RaceService } from '../race.service';
+import { RiderEditorComponent } from 'src/app/rider/rider-editor/rider-editor.component';
 import { Router } from '@angular/router';
 
 @Component({

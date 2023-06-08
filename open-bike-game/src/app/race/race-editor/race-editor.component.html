@@ -1,32 +1,38 @@
-<h2>Edit Race</h2>
-<div>
-  <ul>
-    <li>
-      <input type="radio" name="race-type" id="race-type-distance" checked />
-      <label for="race-type-distance">Distance</label>
-    </li>
-    <li>
-      <input type="radio" name="race-type" id="race-type-duration" />
-      <label for="race-type-duration">Duration</label>
-    </li>
-  </ul>
+<div id="race-editor-main-layout">
   <div>
-    <label for="race-param-distance">Distance (in meters)</label>
-    <input
-      type="number"
-      id="race-param-distance"
-      [(ngModel)]="raceConfiguration.distance"
-      value="500"
-    />
+    <h2>Edit Race</h2>
+    <div id="race-editor-config-layout">
+      <div>
+        <label for="race-type-distance">Distance</label>
+        <input type="radio" name="race-type" id="race-type-distance" checked />
+      </div>
+      <div>
+        <input type="radio" name="race-type" id="race-type-duration" />
+        <label for="race-type-duration">Duration</label>
+      </div>
+      <div>
+        <label for="race-param-distance">Distance (in meters)</label>
+        <input
+          type="number"
+          id="race-param-distance"
+          [(ngModel)]="raceConfiguration.distance"
+          value="500"
+        />
+      </div>
+      <div>
+        <label for="race-param-duration">Duration (in minutes)</label>
+        <input
+          type="number"
+          id="race-param-duration"
+          [(ngModel)]="raceConfiguration.duration"
+          placeholder="0"
+        />
+      </div>
+    </div>
   </div>
   <div>
-    <label for="race-param-duration">Duration (in minutes)</label>
-    <input
-      type="number"
-      id="race-param-duration"
-      [(ngModel)]="raceConfiguration.duration"
-      placeholder="0"
-    />
+    <h2>Edit Rider</h2>
+    <app-rider-editor></app-rider-editor>
   </div>
 </div>
 <div class="navigation-footer">

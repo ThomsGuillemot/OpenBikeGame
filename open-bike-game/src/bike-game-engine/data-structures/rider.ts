@@ -4,5 +4,8 @@ export interface Rider {
   firstName: string | undefined;
   lastName: string | undefined;
   email: string | undefined;
-  phone_number: string | undefined;
+  phoneNumber: string | undefined;
+  primaryColor: string | undefined;
+  secondaryColor: string | undefined;
+  tertiaryColor: string | undefined;
 }
